@@ -1,50 +1,48 @@
 package com.duyong.backend.Service;
 
 import com.duyong.backend.Entity.Club;
+import com.duyong.backend.Enums;
 import com.duyong.backend.Repository.ClubRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class ClubService {
 
     private final ClubRepository clubRepository;
 
-    public ClubService(ClubRepository clubRepository) {
-        this.clubRepository = clubRepository;
-    }
-
-    // Create
     public Club createClub(Club club) {
         return clubRepository.save(club);
     }
 
-    // Read All
     public List<Club> getAllClubs() {
         return clubRepository.findAll();
     }
 
-    // Read One
     public Optional<Club> getClubById(Long id) {
         return clubRepository.findById(id);
     }
 
-    // Update
-    public Club updateClub(Long id, Club updatedClub) {
+    public List<Club> getClubsByCategory(Enums.Category category) {
+        return clubRepository.findByCategory(category);
+    }
+
+    public Club updateClub(Long id, Club Club) {
         return clubRepository.findById(id)
                 .map(club -> {
-                    club.setName(updatedClub.getName());
-                    club.setDescription(updatedClub.getDescription());
-                    club.setCategory(updatedClub.getCategory());
-                    club.setRecruiting(updatedClub.isRecruiting());
+                    club.setName(Club.getName());
+                    club.setDescription(Club.getDescription());
+                    club.setCategory(Club.getCategory());
+                    club.setRecruiting(Club.isRecruiting());
                     return clubRepository.save(club);
                 })
                 .orElseThrow(() -> new RuntimeException("Club not found with id: " + id));
     }
 
-    // Delete
     public void deleteClub(Long id) {
         clubRepository.deleteById(id);
     }
