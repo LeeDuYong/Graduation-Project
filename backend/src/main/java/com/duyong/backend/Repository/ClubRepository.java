@@ -1,13 +1,16 @@
 package com.duyong.backend.Repository;
 
 import com.duyong.backend.Entity.Club;
+import com.duyong.backend.Entity.User;
 import com.duyong.backend.Enums;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface ClubRepository extends JpaRepository<Club, Long> {
+public interface ClubRepository extends JpaRepository<Club, Long>, JpaSpecificationExecutor<Club> {
     List<Club> findByCategory(Enums.Category category);
+    List<Club> findByManager(User manager);
 }

@@ -1,11 +1,15 @@
 package com.duyong.backend.Entity;
 
 import com.duyong.backend.Enums;
+import com.duyong.backend.Service.ClubEntityListener;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@EntityListeners(ClubEntityListener.class)
 @Getter
 @Setter
 @NoArgsConstructor
@@ -26,6 +30,22 @@ public class Club {
     private boolean recruiting; // 모집시 게시물을 올리는 것이 아니라, 동아리별로 페이지를 관리하는 형식이기에, 모집 여부 관리
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+    @OneToOne(mappedBy = "club", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Post post;
+    // 연관 관계 편의 메서드: Club에서 Post를 쉽게 설정
+    public void setPost(Post post) {
+        this.post = post;
+        post.setClub(this);
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "manager_id")
+    private User manager;
+
+    @OneToMany(mappedBy = "club", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
+    private List<Favorite> favoritedBy = new ArrayList<>();
 
     @PrePersist
     public void prePersist() {
