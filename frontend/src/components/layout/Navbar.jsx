@@ -20,6 +20,7 @@ const Navbar = () => {
             <div>
                 <Link to="/" style={linkStyle}>메인</Link>
                 <Link to="/search" style={linkStyle}>동아리 검색</Link>
+                <Link to="/recommend" style={linkStyle}>AI 추천</Link>
                 <Link to="/profile" style={linkStyle}>내 프로필</Link>
                 {isAdmin && (
                     <Link to="/my-club" style={linkStyle}>내 동아리 관리</Link>

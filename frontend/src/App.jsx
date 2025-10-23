@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
-import Layout from './components/layout/Layout';
 import ProtectedRoute from './components/ProtectedRoute';
 import MainPage from './pages/MainPage';
 import ProfilePage from './pages/ProfilePage';
@@ -11,6 +10,7 @@ import ClubDetailPage from './pages/ClubDetailPage';
 import MyClubPage from './pages/MyClubPage';
 import ClubCreationPage from './pages/ClubCreationPage';
 import { useAuth } from './hooks/useAuth';
+import RecommendationPage from './pages/RecommendationPage';
 
 function App() {
   const { isLoggedIn, isLoading } = useAuth();
@@ -33,6 +33,7 @@ function App() {
           <Route path="/club/:clubId" element={<ClubDetailPage />} />
           <Route path="/my-club" element={<MyClubPage />} />
           <Route path="/create-club" element={<ClubCreationPage />} />
+          <Route path="/recommend" element={<RecommendationPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

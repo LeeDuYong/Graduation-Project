@@ -1,5 +1,6 @@
 package com.duyong.backend.Entity;
 
+import com.duyong.backend.Service.PostEntityListener;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
@@ -7,6 +8,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
+@EntityListeners(PostEntityListener.class)
 @Getter
 @Setter
 @NoArgsConstructor
