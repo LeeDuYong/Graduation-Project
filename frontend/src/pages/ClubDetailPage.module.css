@@ -1,10 +1,7 @@
 .container {
     max-width: 800px;
     margin: 40px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 0 20px;
 }
 
 .message {
@@ -14,46 +11,52 @@
     color: #666;
 }
 
-.header {
-    position: relative;
-    margin-bottom: 30px;
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
 }
 
-.bannerImage {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.headerContent {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    color: white;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
 }
 
 .title {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #333;
 }
 
 .tags {
-    margin-top: 10px;
     display: flex;
     gap: 10px;
+    flex-shrink: 0;
+    padding-top: 8px;
 }
 
 .categoryTag, .statusTag {
-    padding: 5px 12px;
-    border-radius: 15px;
-    font-size: 0.9rem;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 0.8rem;
     font-weight: bold;
+    color: white;
 }
 
 .categoryTag {
     background-color: #007bff;
+    color: white;
 }
 
 .statusTag.recruiting {
@@ -61,78 +64,105 @@
 }
 
 .statusTag.closed {
-    background-color: #dc3545;
+    background-color: #6c757d;
 }
 
-.contentBody {
-    line-height: 1.8;
+.cardBody {
+    flex-grow: 1;
+}
+
+.postContent {
+    line-height: 1.7;
     color: #333;
 }
 
-.contentBody h2 {
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-.description {
-    white-space: pre-wrap;
-}
-
-.actions {
-    margin-top: 40px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.applyButton, .backButton {
-    padding: 12px 24px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1rem;
+.postTitle {
+    font-size: 1.5rem;
     font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s;
+    margin-bottom: 1rem;
 }
 
-.applyButton {
-    background-color: #1877f2;
-    color: white;
+.postBody {
+    white-space: pre-wrap;
+    font-size: 1rem;
+}
+
+.noPost {
+    font-style: italic;
+    color: #888;
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.editForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.formGroup label {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.formGroup input[type="text"],
+.formGroup textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.formActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.cardFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.button {
+    padding: 10px 20px;
     border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
 }
 
-.applyButton:hover {
-    background-color: #166fe5;
+.buttonPrimary {
+    background-color: #007bff;
+    color: white;
 }
 
-.backButton {
+.buttonPrimary:hover {
+    background-color: #0056b3;
+}
+
+.buttonSecondary {
     background-color: #e4e6eb;
     color: #333;
     border: 1px solid #ccc;
 }
 
-.backButton:hover {
+.buttonSecondary:hover {
     background-color: #d1d3d6;
-}
-
-.favoriteButton {
-    margin-top: 15px;
-    padding: 8px 15px;
-    border: 1px solid white;
-    background-color: rgba(0,0,0,0.3);
-    color: white;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.favoriteButton:hover {
-    background-color: rgba(255,255,255,0.2);
-}
-
-.favoriteButton.favorited {
-    background-color: #e44d62;
-    border-color: #e44d62;
 }

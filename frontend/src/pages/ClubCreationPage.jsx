@@ -34,7 +34,7 @@ const ClubCreationPage = () => {
 
     return (
         <div className={styles.container}>
-            <h1>새 동아리 등록</h1>
+            <h1 className={styles.title}>새 동아리 등록</h1>
             <p>운영진으로 활동할 동아리의 정보를 입력해주세요.</p>
             <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.formGroup}>

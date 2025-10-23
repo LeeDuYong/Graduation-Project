@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import './App.css';
 import ProtectedRoute from './components/ProtectedRoute';
 import MainPage from './pages/MainPage';
-import ProfilePage from './pages/ProfilePage';
 import SearchPage from './pages/SearchPage';
 import AuthPage from './pages/AuthPage';
 import ClubDetailPage from './pages/ClubDetailPage';
@@ -29,7 +28,6 @@ function App() {
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<MainPage />} />
           <Route path="/search" element={<SearchPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
           <Route path="/club/:clubId" element={<ClubDetailPage />} />
           <Route path="/my-club" element={<MyClubPage />} />
           <Route path="/create-club" element={<ClubCreationPage />} />

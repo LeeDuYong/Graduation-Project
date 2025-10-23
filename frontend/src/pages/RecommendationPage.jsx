@@ -29,7 +29,7 @@ const RecommendationPage = () => {
 
     return (
         <div className={styles.container}>
-            <h1>AI 동아리 추천 🤖</h1>
+            <h1 className={styles.title}>AI 동아리 추천 🤖</h1>
             <p>찾고 있는 동아리에 대해 자유롭게 질문해보세요!</p>
             <p className={styles.example}>예: "코딩도 배우고 사람들과 친해질 수 있는 동아리 찾아줘"</p>
             

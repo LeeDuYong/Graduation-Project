@@ -5,11 +5,15 @@ const ClubCard = ({ club }) => {
     return (
         <Link to={`/club/${club.id}`} className={styles.cardLink}>
             <div className={styles.card}>
-                <img src={club.imageUrl} alt={`${club.name} 로고`} className={styles.cardImage} />
+                
                 <div className={styles.cardBody}>
                     <div className={styles.cardHeader}>
                         <h3 className={styles.cardTitle}>{club.name}</h3>
-                        <span className={styles.cardCategory}>{club.category}</span>
+                        {club.category == "HOBBY" ? (
+                            <span className={styles.cardCategory}>취미</span>
+                        ) : (
+                            <span className={styles.cardCategory}>학술</span>
+                        )}
                     </div>
                     <p className={styles.cardDescription}>{club.description}</p>
                     <div className={styles.cardFooter}>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import api from '../api';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './MyClubPage.module.css';
 
 const ManagedClubCard = ({ club, onUpdate }) => {
@@ -64,7 +64,7 @@ const MyClubPage = () => {
     return (
         <div className={styles.container}>
             <div className={styles.header}>
-                <h1>내 동아리 관리</h1>
+                <h1 className={styles.title}>내 동아리 관리</h1>
                 <Link to="/create-club" className={styles.createButton}>+ 새 동아리 등록</Link>
             </div>
             

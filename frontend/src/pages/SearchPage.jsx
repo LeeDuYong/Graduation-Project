@@ -39,7 +39,7 @@ const SearchPage = () => {
 
     return (
         <div className={styles.container}>
-            <h1>동아리 검색</h1>
+            <h1 className={styles.title}>동아리 검색</h1>
             <div className={styles.filters}>
                 <input
                     type="text"
@@ -67,7 +67,7 @@ const SearchPage = () => {
                 {isLoading ? (
                     <p>검색 중...</p>
                 ) : results.length > 0 ? (
-                    <div className={styles.clubGrid}>
+                    <div className={styles.clubList}>
                         {results.map(club => (
                             <ClubCard key={club.id} club={club} />
                         ))}
